@@ -1,0 +1,6 @@
+/target/
+/test-output/
+/mvnw
+/.mvn/
+/mvnw.cmd
+/.settings/
