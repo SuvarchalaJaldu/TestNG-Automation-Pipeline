@@ -12,6 +12,7 @@
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>4.7.2</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.testng</groupId>
@@ -25,8 +26,48 @@
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
 			<version>5.2.3</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>2.15.0</version>
+			<scope>compile</scope>
+		</dependency>
+		<!-- RestAssured for REST API testing -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>5.3.0</version>
+			<scope>compile</scope>
 		</dependency>
 
+		<!-- JSON Schema Validation (Optional) -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>json-schema-validator</artifactId>
+			<version>5.3.0</version> <!-- Replace with the latest version
+			available -->
+			<scope>compile</scope> <!-- Use 'test' scope as it's mainly for testing
+			purposes -->
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.12.4</version>
+			<scope>compile</scope>
+		</dependency>
+
+
+		<!-- XML Path (Optional) -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>xml-path</artifactId>
+			<version>5.3.0</version> <!-- Replace with the latest version
+			available -->
+			<scope>compile</scope> <!-- Use 'test' scope as it's mainly for testing
+			purposes -->
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -38,6 +79,20 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<!-- Maven Surefire Plugin for running tests -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.1.0</version> <!-- Replace with the latest version
+				available -->
+				<configuration>
+					<!-- Include testng.xml to define test suite, or let it
+					discover all test classes -->
+					<suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
 				</configuration>
 			</plugin>
 		</plugins>

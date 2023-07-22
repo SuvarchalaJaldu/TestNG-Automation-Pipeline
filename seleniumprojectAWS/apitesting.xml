@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Seleniumex" thread-count="3" parallel="tests">
+	<test name="firefox test">
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="com.testing.FrameworksTest">
+			
+			<methods>
+				<include name="testRestApi"></include>
+			</methods>
+			</class>
+			</classes>
+	</test>
+</suite> <!--
+Seleniumex -->

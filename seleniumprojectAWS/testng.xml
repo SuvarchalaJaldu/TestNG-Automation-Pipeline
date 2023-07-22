@@ -13,5 +13,14 @@
 			<class name="com.testing.FrameworksTest" />
 		</classes>
 	</test>
+	<test name="api test">
+		<classes>
+			<class name="com.testing.APITests">
+				<methods>
+					<include name="testRestApi"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite> <!--
 Seleniumex -->

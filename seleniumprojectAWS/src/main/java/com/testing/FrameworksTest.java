@@ -8,8 +8,6 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.AssertJUnit;
@@ -33,7 +31,7 @@ public void setup(String browser)
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability("browserName", "chrome");
 		try {
-			driver = new RemoteWebDriver(new URL("http://54.221.30.22:4444/wd/hub"), cap);
+			driver = new RemoteWebDriver(new URL("http://34.224.74.122:4444/wd/hub"), cap);
 		}catch(MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -44,25 +42,25 @@ public void setup(String browser)
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability("browserName", "firefox");
 		try {
-			driver = new RemoteWebDriver(new URL("http://54.221.30.22:4444/wd/hub"), cap);
+			driver = new RemoteWebDriver(new URL("http://34.224.74.122:4444/wd/hub"), cap);
 		}catch(MalformedURLException e) {
 			e.printStackTrace();
 		}
 	}
-	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-	driver.get("https://www.freshworks.com/");
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+    driver.get("https://www.freshworks.com/");
 }
 
 	@Test
 	public void FreshWorksTitleTest() {
-		System.out.println(driver.getTitle());
-		AssertJUnit.assertEquals(driver.getTitle(), "Innovative Software for Business Needs | Freshworks");
+        System.out.println(driver.getTitle());
+        AssertJUnit.assertEquals(driver.getTitle(), "Innovative Software for Business Needs | Freshworks");
 	}
 
 	@Test
 	public void getFooterLinksTest() {
-		List<WebElement> footerLinksList = driver.findElements(By.cssSelector("#__next > footer > div > div:nth-child(2) > nav"));
-		footerLinksList.forEach(ele -> System.out.println(ele.getText()));
+        List<WebElement> footerLinksList = driver.findElements(By.cssSelector("#__next > footer > div > div:nth-child(2) > nav"));
+        footerLinksList.forEach(ele -> System.out.println(ele.getText()));
 		//AssertJUnit.assertEquals(footerLinksList.size(),35);
 	}
 
