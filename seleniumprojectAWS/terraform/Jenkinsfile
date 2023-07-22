@@ -9,23 +9,21 @@ pipeline {
     }
 
    agent  any
+   
+    tools {
+        // Define the Terraform installation using the tool type 'terraform'
+        terraform "terraform_1.5.3"
+    }
     stages {
-        stage('checkout') {
-            steps {
-                 script{
-                        dir("terraform")
-                        {
-                            git "https://github.com/SuvarchalaJaldu/selenium-aws.git"
-                        }
-                    }
-                }
-            }
-
         stage('Plan') {
             steps {
-                sh 'pwd;cd terraform/seleniumprojectAWS/terraform ; terraform init'
-                sh "pwd;cd terraform/seleniumprojectAWS/terraform ; terraform plan -out tfplan"
-                sh 'pwd;cd terraform/seleniumprojectAWS/terraform ; terraform show -no-color tfplan > tfplan.txt'
+                script {
+                    def terraformDir = "$WORKSPACE/seleniumprojectAWS/terraform"
+                    bat "terraform --version" 
+                    bat "cd ${terraformDir} && terraform init"
+                    bat "cd ${terraformDir} && terraform plan -out tfplan"
+                    bat "cd ${terraformDir} && terraform show -no-color tfplan > tfplan.txt"
+                }
             }
         }
         stage('Approval') {
@@ -46,7 +44,7 @@ pipeline {
 
         stage('Apply') {
             steps {
-                sh "pwd;cd terraform/ ; terraform apply -input=false tfplan"
+                bat "cd $WORKSPACE/seleniumprojectAWS/terraform && terraform apply -input=false tfplan"
             }
         }
     }
