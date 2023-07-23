@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class FrameworksTest {
+public class FreshworksTest {
 	WebDriver driver;
 
 @BeforeMethod
@@ -31,7 +31,7 @@ public void setup(String browser)
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability("browserName", "chrome");
 		try {
-			driver = new RemoteWebDriver(new URL("http://34.224.74.122:4444/wd/hub"), cap);
+			driver = new RemoteWebDriver(new URL("http://3.208.25.111:4444/wd/hub"), cap);
 		}catch(MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -42,7 +42,7 @@ public void setup(String browser)
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability("browserName", "firefox");
 		try {
-			driver = new RemoteWebDriver(new URL("http://34.224.74.122:4444/wd/hub"), cap);
+			driver = new RemoteWebDriver(new URL("http://3.208.25.111/:4444/wd/hub"), cap);
 		}catch(MalformedURLException e) {
 			e.printStackTrace();
 		}

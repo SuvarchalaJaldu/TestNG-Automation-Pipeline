@@ -4,13 +4,13 @@
 	<test name="chrome test">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="com.testing.FrameworksTest" />
+			<class name="com.testing.FreshworksTest" />
 		</classes>
 	</test>
 	<test name="firefox test">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.testing.FrameworksTest" />
+			<class name="com.testing.FreshworksTest" />
 		</classes>
 	</test>
 	<test name="api test">
