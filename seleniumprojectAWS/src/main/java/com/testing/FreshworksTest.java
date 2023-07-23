@@ -42,7 +42,7 @@ public void setup(String browser)
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability("browserName", "firefox");
 		try {
-			driver = new RemoteWebDriver(new URL("http://3.208.25.111/:4444/wd/hub"), cap);
+			driver = new RemoteWebDriver(new URL("http://3.208.25.111:4444/wd/hub"), cap);
 		}catch(MalformedURLException e) {
 			e.printStackTrace();
 		}
