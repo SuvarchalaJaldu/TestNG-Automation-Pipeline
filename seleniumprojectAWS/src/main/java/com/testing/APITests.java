@@ -21,14 +21,15 @@ public class APITests {
         // Perform a GET request to the API endpoint
         Response response = RestAssured.given()
                 .when()
-                .get("/repos/SuvarchalaJaldu/TestnG"); // Replace with your API endpoint
+                .get("/repos/SuvarchalaJaldu/TestnG");
 
         // Validate the response body or specific elements in the response
         String responseBody = response.getBody().asString();
         System.out.println("API Response Body: " + responseBody);
+
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(responseBody);
-        String name = jsonNode.get("name").asText();
+
         long id = jsonNode.get("id").asLong();
         boolean isprivate= jsonNode.get("private").asBoolean();
         
