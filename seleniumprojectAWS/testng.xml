@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Seleniumex" thread-count="5" parallel="methods">
+<suite name="Seleniumex" thread-count="5" parallel="tests">
 	<test name="chrome test">
 		<parameter name="browser" value="chrome" />
 		<classes>
