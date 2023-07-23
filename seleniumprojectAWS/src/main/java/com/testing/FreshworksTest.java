@@ -33,7 +33,7 @@ public void setup(String browser)
 		try {
 			driver = new RemoteWebDriver(new URL("http://3.208.25.111:4444/wd/hub"), cap);
 		}catch(MalformedURLException e) {
-			e.printStackTrace()
+			e.printStackTrace();
 		}
 	}
 	else if(browser.equalsIgnoreCase("firefox")) {
@@ -61,7 +61,7 @@ public void setup(String browser)
 	public void getFooterLinksTest() {
         List<WebElement> footerLinksList = driver.findElements(By.cssSelector("#__next > footer > div > div:nth-child(2) > nav"));
         footerLinksList.forEach(ele -> System.out.println(ele.getText()));
-		//AssertJUnit.assertEquals(footerLinksList.size(),35);
+		AssertJUnit.assertEquals(footerLinksList.size(),25);
 	}
 
 	@AfterMethod
