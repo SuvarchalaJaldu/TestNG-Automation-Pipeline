@@ -33,7 +33,7 @@ public void setup(String browser)
 		try {
 			driver = new RemoteWebDriver(new URL("http://3.208.25.111:4444/wd/hub"), cap);
 		}catch(MalformedURLException e) {
-			e.printStackTrace();
+			e.printStackTrace()
 		}
 	}
 	else if(browser.equalsIgnoreCase("firefox")) {
