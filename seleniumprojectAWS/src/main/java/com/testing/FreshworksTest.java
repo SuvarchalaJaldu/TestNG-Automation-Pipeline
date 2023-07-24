@@ -29,10 +29,10 @@ public void setup(String browser)
 	if(browser.equalsIgnoreCase("chrome")) {
 		WebDriverManager.chromedriver().setup();
 		//driver = new ChromeDriver();
-		DesiredCapabilities cap = new DesiredCapabilities();
+	DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability("browserName", "chrome");
 		try {
-			driver = new RemoteWebDriver(new URL("http://54.90.111.231:4444/wd/hub"), cap);
+			driver = new RemoteWebDriver(new URL("http://18.213.0.37:4444/wd/hub"), cap);
 		}catch(MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -43,7 +43,7 @@ public void setup(String browser)
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability("browserName", "firefox");
 		try {
-			driver = new RemoteWebDriver(new URL("http://54.90.111.231:4444/wd/hub"), cap);
+			driver = new RemoteWebDriver(new URL("http://18.213.0.37:4444/wd/hub"), cap);
 		}catch(MalformedURLException e) {
 			e.printStackTrace();
 		}
