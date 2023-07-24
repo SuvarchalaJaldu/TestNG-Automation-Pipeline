@@ -32,7 +32,7 @@ public void setup(String browser)
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability("browserName", "chrome");
 		try {
-			driver = new RemoteWebDriver(new URL("http://54.82.39.134:4444/wd/hub"), cap);
+			driver = new RemoteWebDriver(new URL("http://54.90.111.231:4444/wd/hub"), cap);
 		}catch(MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -43,7 +43,7 @@ public void setup(String browser)
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability("browserName", "firefox");
 		try {
-			driver = new RemoteWebDriver(new URL("http://54.82.39.134:4444/wd/hub"), cap);
+			driver = new RemoteWebDriver(new URL("http://54.90.111.231:4444/wd/hub"), cap);
 		}catch(MalformedURLException e) {
 			e.printStackTrace();
 		}
