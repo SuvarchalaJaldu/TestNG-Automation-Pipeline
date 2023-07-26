@@ -21,6 +21,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class FreshworksTest {
 	WebDriver driver;
+	public static String SELENIUM_HUB_URL = "http://107.23.42.113:4444/wd/hub";
 
 @BeforeMethod
 @Parameters("browser")
@@ -32,18 +33,18 @@ public void setup(String browser)
 	DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability("browserName", "chrome");
 		try {
-			driver = new RemoteWebDriver(new URL("http://52.23.211.20:4444/wd/hub"), cap);
+			driver = new RemoteWebDriver(new URL(SELENIUM_HUB_URL), cap);
 		}catch(MalformedURLException e) {
 			e.printStackTrace();
 		}
 	}
 	else if(browser.equalsIgnoreCase("firefox")) {
-		WebDriverManager.chromedriver().setup();
+		WebDriverManager.firefoxdriver().setup();
 		//driver = new FirefoxDriver();
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability("browserName", "firefox");
 		try {
-			driver = new RemoteWebDriver(new URL("http://52.23.211.20:4444/wd/hub"), cap);
+			driver = new RemoteWebDriver(new URL(SELENIUM_HUB_URL), cap);
 		}catch(MalformedURLException e) {
 			e.printStackTrace();
 		}
