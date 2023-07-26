@@ -21,7 +21,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class FreshworksTest {
 	WebDriver driver;
-	public static String SELENIUM_HUB_URL = "http://107.23.42.113:4444/wd/hub";
+	public static String SELENIUM_HUB_URL = "http://44.202.159.209:4444/wd/hub";
 
 @BeforeMethod
 @Parameters("browser")
