@@ -1,0 +1,32 @@
+node{
+    def mvnHome = tool 'MAVEN_HOME'
+    stage('Clone Repository') {
+        git credentialsId: 'github-credentials', url: 'https://github.com/SuvarchalaJaldu/TestNG-Automation-Pipeline.git'
+    }
+    stage('Maven Compile') {
+        script {
+            bat "cd $WORKSPACE/seleniumprojectAWS && mvn compile"
+        }
+    }
+    stage('Maven Build') {
+        script {
+            bat "cd $WORKSPACE/seleniumprojectAWS && mvn clean package -DskipTests"
+        }
+    }
+    stage('SonarQube analysis') {
+        script {
+            withSonarQubeEnv('sonarqube-9.9.1') { 
+                bat "cd $WORKSPACE/seleniumprojectAWS && mvn sonar:sonar"
+            }
+        }
+    }
+    stage('Test Stage') {
+        script {
+            bat "cd $WORKSPACE/seleniumprojectAWS && mvn test"
+        }
+    }
+    stage('Archive Artifacts') {
+        archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+        archiveArtifacts artifacts: '**/target/surefire-reports/*.html', fingerprint: true
+    }
+}
